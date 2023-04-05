@@ -1,0 +1,37 @@
+
+#ifndef WIDGET_H
+#define WIDGET_H
+
+#include <QWidget>
+#include <QtNetwork>
+
+
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class Widget; }
+QT_END_NAMESPACE
+
+class Widget : public QWidget
+
+{
+    Q_OBJECT
+
+public:
+    Widget(QWidget *parent = nullptr);
+    ~Widget();
+
+private slots:
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_send_clicked();
+
+private:
+    Ui::Widget *ui;
+    //udp服务器
+    QUdpSocket *mSocket;
+    //通信ip和端口
+    QHostAddress addr;
+    quint16 port;
+};
+
+#endif // WIDGET_H
